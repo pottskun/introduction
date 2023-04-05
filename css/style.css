@@ -68,7 +68,7 @@ font-family
   ここに背景画像を設置
 } */
 
-#msg {
+.topic {
   width: 180px;
   position: absolute;
   top: 200px;
@@ -81,6 +81,7 @@ font-family
 .msg-picup {
   animation: 1s 1 normal fadeout;
   animation-fill-mode: forwards;
+  /* 移動してから消えるのなんで */
 }
 
 @keyframes fadeout {
@@ -91,7 +92,6 @@ font-family
     opacity: 0;
   }
 }
-
 
 .msg-sec {
   width: 180px;
