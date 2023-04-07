@@ -93,12 +93,69 @@ font-family
   }
 }
 
-.msg-sec {
-  width: 180px;
-  /* position: absolute;
-  top: 200px;
-  left: 40px;
-  text-align: center;
-  border: 1px solid #212121;
-  padding: 1em; */
+
+.msg-picup {
+  animation: 1s 1 normal fadeout;
+  animation-fill-mode: forwards;
+}
+
+.slideUP {
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position:fixed;
+  z-index: 999;
+  bottom:-120%;
+  /* bottom:0%; */
+  left:0;
+  width:100%;
+  /* 横幅を狭めて真ん中寄せにしたい */
+  height: 100vh;/*ナビの高さ*/
+  background:#999;
+  /*動き*/
+  animation: slideUp 1s forwards;
+}
+
+/* .kore  {
+  bottom: 0
+} */
+
+
+/* .slideUp {
+  animation: slideUp .5s ease-in-out forwards;
+}
+.slideDown {
+  animation: slideDown .5s ease-in-out forwards;
+} */
+
+/* 下から上 */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-1%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-80%);
+  }
+}
+
+/*上から下*/
+@keyframes slideDown {
+  0% {
+    opacity: 1;
+    transform: translateY(-80%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-1%);
+  }
+}
+
+/* 下からできたwindowの右端にばつ印を書きたい */
+.slideUp.js-closeBtn  {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 2px solid red; /* 枠の調整 */
+  background: darkolivegreen; /* ボタンの背景色 */
 }
