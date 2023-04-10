@@ -8,7 +8,7 @@ topic.addEventListener("click", function () {
   // ここではアニメーションを取得してきてアニメーション終了後にイベントを実行している
   topic.addEventListener("animationend", () => {
     // アニメーション終了後に実行する内容(下からwindowがでてくる)
-    // まずはmodalの子どもにdivをつけ、そのdivにクラス名slideUPをつけたい
+    // まずはmodalの子どもにdivをつけ、そのdivにクラス名slideUPをつけている
     const modal = document.createElement("div");
     modal.className = "slideUP js-closeBtn"
     document.getElementById("modal").appendChild(modal);
