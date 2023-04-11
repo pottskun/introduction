@@ -3,16 +3,27 @@
 const topic = document.getElementsByClassName("topic")[0];
 topic.addEventListener("click", function () {
   topic.classList.add("msg-picup")
+  // closeBtn.addEventListener("click", function () {
+  // この時点でcloseBtnはないからエラる
+})
 
+// ここではアニメーションを取得してきてアニメーション終了後にイベントを実行している
+topic.addEventListener("animationend", () => {
+  // アニメーション終了後に実行する内容(下からwindowがでてくる)
+  const modal = document.createElement("div");
+  modal.className = "slideUp"
+  // 複数のクラス名を追加(slideUp,slideDown)
+  // modal.classList.add("slideUp" , "slideDown")
+  document.getElementById("modal").appendChild(modal);
+  const closeBtn = document.createElement("button");
+  closeBtn.className = "js-closeBtn"
+  document.getElementsByClassName("slideUp")[0].appendChild(closeBtn);
+  closeBtn.innerHTML = ("close");
 
-  // ここではアニメーションを取得してきてアニメーション終了後にイベントを実行している
-  topic.addEventListener("animationend", () => {
-    // アニメーション終了後に実行する内容(下からwindowがでてくる)
-    // まずはmodalの子どもにdivをつけ、そのdivにクラス名slideUPをつけている
-    const modal = document.createElement("div");
-    modal.className = "slideUP js-closeBtn"
-    document.getElementById("modal").appendChild(modal);
-
+  // closeボタンが押されたらモーダルがスライドダウンする
+  closeBtn.addEventListener("click", function () {
+    // closeBtnが押された時の処理を書くmodalにクラスを付与して、そのクラスが付いたらスライドダウンするようにする
+    modal.classList.add("slideDown")
   })
 })
 

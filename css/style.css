@@ -87,7 +87,7 @@ font-family
   position: absolute;
   top: 200px;
   left: 40px;
-  /* topicを範囲を指定 */
+  /* topicの範囲を指定 */
   text-align: center;
   border: 1px solid #fff;
   background-color: #fff;
@@ -118,27 +118,26 @@ font-family
   height: 100vh;
 }
 
-.slideUP {
+.slideUp {
   width: 88%;
   /* max-width: 576pxを継承 */
   height: 100%;
-  /* bottom: 0;
-  left: 0; */
   margin: 0 auto;
   padding: 16px;
   background: lightblue;
   border-radius:4px 4px 0 0 ;
   z-index: 1;
+  /* slideUpは親要素のmodalに高さ100vhを与えてそこで自信に100%の高さを与え、
+  widthで幅を、marginでセンター寄せにしている */
+}
+
+.slideUp {
   animation: slideUp 1s forwards;
-
 }
 
-/* .slideUp {
-  animation: slideUp .5s ease-in-out forwards;
-}
 .slideDown {
-  animation: slideDown .5s ease-in-out forwards;
-} */
+  animation: slideDown 1s forwards;
+}
 
 /* 下から上 */
 @keyframes slideUp {
@@ -146,7 +145,6 @@ font-family
     transform: translateY(120%);
   }
   100% {
-    /* opacity: 1; */
     transform: translateY(8%);
   }
 }
@@ -154,21 +152,21 @@ font-family
 /*上から下*/
 @keyframes slideDown {
   0% {
-    opacity: 1;
-    transform: translateY(-80%);
+    transform: translateY(8%);
   }
   100% {
-    opacity: 0;
-    transform: translateY(-1%);
+    transform: translateY(120%);
   }
 }
 
 /* 下からできたwindowの右端にばつ印を書きたい */
-/* .slideUp.js-closeBtn  {
-  display: block;
+.slideUp {
   position: relative;
-  width: 30px;
-  height: 30px;
-  border: 2px solid red; 
-  background: darkolivegreen; 
-} */
+}
+
+.js-closeBtn  {
+  display: block;
+  position: absolute;
+  right: 8px;
+  cursor:pointer;
+}
