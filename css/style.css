@@ -94,9 +94,20 @@ font-family
   padding: 1em;
 }
 
+/* .topic:active {
+  animation: 1s 1 normal fadeout;
+  animation-fill-mode: forwards;
+} */
+
 .msg-picup {
   animation: 1s 1 normal fadeout;
   animation-fill-mode: forwards;
+}
+
+.comeback {
+  animation: 1s 1 normal fadein;
+  animation-fill-mode: forwards;
+  z-index: 100;
 }
 
 @keyframes fadeout {
@@ -108,10 +119,13 @@ font-family
   }
 }
 
-
-.msg-picup {
-  animation: 1s 1 normal fadeout;
-  animation-fill-mode: forwards;
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 #modal {
@@ -170,3 +184,4 @@ font-family
   right: 8px;
   cursor:pointer;
 }
+
