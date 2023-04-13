@@ -94,11 +94,6 @@ font-family
   padding: 1em;
 }
 
-/* .topic:active {
-  animation: 1s 1 normal fadeout;
-  animation-fill-mode: forwards;
-} */
-
 .msg-picup {
   animation: 1s 1 normal fadeout;
   animation-fill-mode: forwards;
@@ -127,6 +122,18 @@ font-family
     opacity: 1;
   }
 }
+
+.maru {
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  background-color: red;
+  position: absolute;
+  top: 30%;
+  border-radius: 50%;
+  /* 文字を上下中央に持っていくには？ */
+}
+
 
 #modal {
   height: 100vh;

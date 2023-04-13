@@ -1,9 +1,8 @@
-// ここでは最初の画面に出るカードの要素を取得してきて、クリックされたら透明度をあげて消す、をやっている
-// ここは後で説明します
 const topic = document.getElementsByClassName("topic")[0];
 topic.addEventListener("click", function () {
   topic.classList.add("msg-picup")
-})
+  })
+
 
 // ここではアニメーションを取得してきてアニメーション終了後にイベントを実行している
 topic.addEventListener("animationend", () => {
@@ -22,17 +21,20 @@ topic.addEventListener("animationend", () => {
     // 9行目で行っているのと同じように、slideDownのアニメーションが終わったら、
   modal.addEventListener("animationend", () => { 
     // topicを再度出す(topicにクラスをつけてそのクラスに復活するアニメーションをつける)
-    topic.classList.toggle("comeback");
+    // topic.classList.toggle("comeback");
+    topic.classList.toggle("msg-picup")
+    // slideUpを消す
+    modal.remove();
   })
-
-
-
-  })
+  //   addEventListener("click", function() {
+  //   ("modal").classList.toggle("comeback")
+  // })
+})
 })
 
-// toggleでつけたクラス名で要素を「隠す」を実行。
-// つけられていない状態でtopicをfadeoutさせる。
-// 何もない状態のクラスがtopicMsg、toggleで切り替えてつくクラス名がtopicMsgBack
+// 4/14
+
+// toggleでつけたクラス名で要素を「隠す」を実行。つけられていない状態でtopicをfadeoutさせる。
 
 
 
