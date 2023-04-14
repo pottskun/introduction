@@ -134,7 +134,6 @@ font-family
   /* 文字を上下中央に持っていくには？ */
 }
 
-
 #modal {
   height: 100vh;
 }
@@ -150,6 +149,7 @@ font-family
   z-index: 1;
   /* slideUpは親要素のmodalに高さ100vhを与えてそこで自信に100%の高さを与え、
   widthで幅を、marginでセンター寄せにしている */
+  overflow: scroll;
 }
 
 .slideUp {
@@ -183,6 +183,7 @@ font-family
 /* 下からできたwindowの右端にばつ印を書きたい */
 .slideUp {
   position: relative;
+  display: block;
 }
 
 .js-closeBtn  {
@@ -190,5 +191,15 @@ font-family
   position: absolute;
   right: 8px;
   cursor:pointer;
+  margin: 1em;
 }
 
+
+.content {
+  width: 360px;
+  text-align: center;
+  border: 1px solid #333;
+  background-color: #fff;
+  margin: 4em 0 0 0;
+  padding: 2.5em;
+}
