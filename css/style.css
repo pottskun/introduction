@@ -38,6 +38,19 @@ body {
   overflow-Y: hidden;
 }
 
+.slideUp{
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  overflow: scroll;
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;       /* Firefox 対応 */
+}
+
+.slideUp::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+  display:none;
+}
+
 ol, ul {
   list-style: none;
 }
@@ -57,7 +70,9 @@ table {
   border-spacing: 0;
 }
 
-
+img {
+  width: 100%;
+}
 
 /* ------------------------------
 font-family
@@ -68,9 +83,10 @@ font-family
 }
 
 /* .style {
-  background-image: url();
-  ここに背景画像を設置
+  background-image: url(../imagas/unn.JPG);
 } */
+
+
 
 .container {
   width: 100%;
@@ -83,16 +99,49 @@ font-family
 }
 
 .topic {
-  width: 180px;
-  position: absolute;
-  top: 200px;
-  left: 40px;
-  /* topicの範囲を指定 */
+  width: 220px;
   text-align: center;
   border: 1px solid #fff;
   background-color: #fff;
-  padding: 1em;
+  padding: 1.5em;
 }
+
+#hello {
+  position: absolute;
+  top: 18%;
+  right: 0;
+}
+
+#like {
+  position: absolute;
+  top: 32%;
+  right: 20%;
+}
+
+#dislike {
+  position: absolute;
+  top: 42%;
+  left: 0;
+}
+
+#hobby {
+  position: absolute;
+  top: 58%;
+  right: 0;
+}
+
+#study {
+  position: absolute;
+  top: 64%;
+  left: 0;
+}
+
+#want {
+  position: absolute;
+  top: 72%;
+  left: 10%;
+}
+
 
 .msg-picup {
   animation: 1s 1 normal fadeout;
@@ -203,3 +252,4 @@ font-family
   margin: 4em 0 0 0;
   padding: 2.5em;
 }
+
