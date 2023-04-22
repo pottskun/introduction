@@ -38,19 +38,6 @@ body {
   overflow-Y: hidden;
 }
 
-.slideUp{
-  margin: 0 auto;
-  width: 200px;
-  height: 200px;
-  overflow: scroll;
-  -ms-overflow-style: none;    /* IE, Edge 対応 */
-  scrollbar-width: none;       /* Firefox 対応 */
-}
-
-.slideUp::-webkit-scrollbar {  /* Chrome, Safari 対応 */
-  display:none;
-}
-
 ol, ul {
   list-style: none;
 }
@@ -82,11 +69,11 @@ font-family
   font-weight: 500;
 }
 
-/* .style {
+.style {
   background-image: url(../imagas/unn.JPG);
-} */
-
-
+  /* background-image: 100%; */
+  /* 画像をはめるには？ */
+}
 
 .container {
   width: 100%;
@@ -94,7 +81,6 @@ font-family
   margin: 0 auto;
   max-width: 576px;
   position: relative;
-  /* ここのposi:relaではtopicの範囲を決めるためにある */
   background-color: #000;
 }
 
@@ -144,6 +130,7 @@ font-family
 
 
 .msg-picup {
+  /* topicがクリックされたらこれをつけてtopicを消している */
   animation: 1s 1 normal fadeout;
   animation-fill-mode: forwards;
 }
@@ -192,13 +179,35 @@ font-family
   /* max-width: 576pxを継承 */
   height: 100%;
   margin: 0 auto;
-  padding: 16px;
-  background: lightblue;
-  border-radius:4px 4px 0 0 ;
+  padding: 16px 16px 220px 16px;
+  /* 次のcloseが出てきてしまう問題 */
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius:10px 10px 0 0 ;
   z-index: 1;
-  /* slideUpは親要素のmodalに高さ100vhを与えてそこで自信に100%の高さを与え、
-  widthで幅を、marginでセンター寄せにしている */
-  overflow: scroll;
+}
+
+.wrapper {
+  height: 100%;
+  margin-top: 6em;
+  overflow-y: scroll;
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;       /* Firefox 対応 */
+}
+
+.wrapper::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+  display:none;
+}
+
+.content {
+  width: 360px;
+  text-align: center;
+  border: 1px solid #333;
+  background-color: #fff;
+  padding: 2.5em;
+}
+
+.wrapper .content {
+  margin: 2em auto;
 }
 
 .slideUp {
@@ -241,15 +250,5 @@ font-family
   right: 8px;
   cursor:pointer;
   margin: 1em;
-}
-
-
-.content {
-  width: 360px;
-  text-align: center;
-  border: 1px solid #333;
-  background-color: #fff;
-  margin: 4em 0 0 0;
-  padding: 2.5em;
 }
 
