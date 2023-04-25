@@ -69,10 +69,12 @@ font-family
   font-weight: 500;
 }
 
-.style {
+.bgi{
   background-image: url(../imagas/unn.JPG);
   /* background-image: 100%; */
-  /* 画像をはめるには？ */
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  /* object-fit: cover; */
 }
 
 .container {
@@ -87,8 +89,8 @@ font-family
 .topic {
   width: 220px;
   text-align: center;
-  border: 1px solid #fff;
-  background-color: #fff;
+  border: .5px solid #313131;
+  background-color: #ffffff79;
   padding: 1.5em;
 }
 
@@ -159,28 +161,15 @@ font-family
   }
 }
 
-.maru {
-  width: 400px;
-  height: 400px;
-  text-align: center;
-  background-color: red;
-  position: absolute;
-  top: 30%;
-  border-radius: 50%;
-  /* 文字を上下中央に持っていくには？ */
-}
-
 #modal {
   height: 100vh;
 }
 
 .slideUp {
-  width: 88%;
-  /* max-width: 576pxを継承 */
+  width:100%;
   height: 100%;
   margin: 0 auto;
   padding: 16px 16px 220px 16px;
-  /* 次のcloseが出てきてしまう問題 */
   background-color: rgba(255, 255, 255, 0.8);
   border-radius:10px 10px 0 0 ;
   z-index: 1;
@@ -199,7 +188,8 @@ font-family
 }
 
 .content {
-  width: 360px;
+  width: 100%;
+  max-width: 380px;
   text-align: center;
   border: 1px solid #333;
   background-color: #fff;
@@ -238,7 +228,6 @@ font-family
   }
 }
 
-/* 下からできたwindowの右端にばつ印を書きたい */
 .slideUp {
   position: relative;
   display: block;
@@ -252,3 +241,14 @@ font-family
   margin: 1em;
 }
 
+/* 別件 */
+/* 文字を上下中央に持っていくには？ */
+/* .maru {
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  background-color: red;
+  position: absolute;
+  top: 30%;
+  border-radius: 50%;
+} */
