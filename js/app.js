@@ -29,7 +29,7 @@ let dislike = [
   "大きな音",
   "人混み",
   "早起き",
-  "寒い",
+  "映画館",
   "選挙カー"]
 
 let hobby = [
@@ -66,103 +66,97 @@ let want = [
   "トラックパッド",
   "マイホーム"]
 
-const topics = document.getElementsByClassName("topic");
-
-// for-of文を使ってtopicを取得した後の流れを書く
-for (let topic of topics) {
-  topic.addEventListener("keydown", function (e) {
-    if (e.key == "Enter") {
-      action(topic);
-    }
-  })
-  topic.addEventListener("click", function () {
-    action(topic);
-  });
-}
-
-function action(topic) {
-  for (let otherTopic of topics) {
-    // otherTopicという変数を作ってその変数の中にtopicsの配列を入れる
-    if (otherTopic !== topic) {
-      // otherTopic と topic の値が異なる場合に true を返します。???
-      otherTopic.classList.add("msg-picup");
-    }
-  }
-  topic.classList.add("msg-picup");
-  // ここではアニメーションを取得してきてアニメーション終了後にイベントを実行している
-  topic.addEventListener("animationend", () => {
-    // アニメーション終了後に実行する内容(下からwindowがでてくる)
-    const modal = document.createElement("div");
-    modal.className = "slideUp"
-    document.getElementById("modal").appendChild(modal);
-    const closeBtn = document.createElement("button");
-    closeBtn.className = "js-closeBtn"
-    document.getElementsByClassName("slideUp")[0].appendChild(closeBtn);
-    closeBtn.innerHTML = ("close");
-    // closeボタンが押されたらモーダルがスライドダウンする
-    closeBtn.addEventListener("click", function () {
-      // closeBtnが押された時の処理を書くmodalにクラスを付与して、そのクラスが付いたらスライドダウンするようにする
-      modal.classList.add("slideDown")
-      // 9行目で行っているのと同じように、slideDownのアニメーションが終わったら、
-      modal.addEventListener("animationend", () => {
-        for (let removeTopic of topics) {
-          removeTopic.classList.remove("msg-picup")
-        }
-        // slideUpを消している
-        modal.remove();
-      })
+let click = document.querySelector('[data-anim-status="click"]');
+if (click) {
+  click.setAttribute('data-anim-status', 'processing');
+  click.disabled = true;
+  const topics = document.getElementsByClassName("topic");
+  // for-of文を使ってtopicを取得した後の流れを書く
+  for (let topic of topics) {
+    topic.addEventListener("keydown", function (e) {
+      if (e.key == "Enter") {
+        console.log("うんち");
+        action(topic)
+      }
     })
-    // 一つのカードに関することに対して出てくるメッセージを配列で管理する
-    // hogeという変数の中にslideUp(クラス)をとってきている
-    const hoge = document.getElementsByClassName("slideUp")[0];
-    let content = [];
-    if (topic === topics[0]) {
-      content = like
-    } else if (topic === topics[1]) {
-      content = dislike;
-    } else if (topic === topics[2]) {
-      content = hobby;
-    } else if (topic === topics[3]) {
-      content = hello;
-    } else if (topic === topics[4]) {
-      content = study;
-    } else if (topic === topics[5]) {
-      content = want;
+    topic.addEventListener("click", function () {
+      console.log("うんち");
+      action(topic)
+    });
+  }
+  function action(topic) {
+    for (let otherTopic of topics) {
+      if (otherTopic !== topic) {
+        // otherTopic と topic の値が異なる場合に true を返します。???
+        otherTopic.classList.add("msg-picup");
+      }
     }
-    const wrapper = document.createElement("div");
-    wrapper.classList.add("wrapper")
-    modal.appendChild(wrapper);
-    for (let i = 0; i < content.length; i++) {
-      const newMsg = document.createElement("p");
-      newMsg.classList.add("content")
-      newMsg.innerHTML = content[i];
-      wrapper.appendChild(newMsg);
-    }
-  }, { once: true })
+    topic.classList.add("msg-picup");
+    // ここではアニメーションを取得してきてアニメーション終了後にイベントを実行している
+    topic.addEventListener("animationend", () => {
+      // アニメーション終了後に実行する内容(下からwindowがでてくる)
+      const modal = document.createElement("div");
+      modal.className = "slideUp"
+      document.getElementById("modal").appendChild(modal);
+      const closeBtn = document.createElement("button");
+      closeBtn.className = "js-closeBtn"
+      document.getElementsByClassName("slideUp")[0].appendChild(closeBtn);
+      closeBtn.innerHTML = ("close");
+      // closeボタンが押されたらモーダルがスライドダウンする
+      closeBtn.addEventListener("click", function () {
+        // closeBtnが押された時の処理を書くmodalにクラスを付与して、そのクラスが付いたらスライドダウンするようにする
+        modal.classList.add("slideDown")
+        // 9行目で行っているのと同じように、slideDownのアニメーションが終わったら、
+        modal.addEventListener("animationend", () => {
+          for (let removeTopic of topics) {
+            removeTopic.classList.remove("msg-picup")
+          }
+          // slideUpを消している
+          modal.remove();
+          // ここに追加
+          click.setAttribute('data-anim-status', 'click');
+        })
+      })
+      const hoge = document.getElementsByClassName("slideUp")[0];
+      let content = [];
+      if (topic === topics[0]) {
+        content = like
+      } else if (topic === topics[1]) {
+        content = dislike;
+      } else if (topic === topics[2]) {
+        content = hobby;
+      } else if (topic === topics[3]) {
+        content = hello;
+      } else if (topic === topics[4]) {
+        content = study;
+      } else if (topic === topics[5]) {
+        content = want;
+      }
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("wrapper")
+      modal.appendChild(wrapper);
+      for (let i = 0; i < content.length; i++) {
+        const newMsg = document.createElement("p");
+        newMsg.classList.add("content")
+        newMsg.innerHTML = content[i];
+        wrapper.appendChild(newMsg);
+      }
+    }, { once: true })
+  }
+  // ここでは一つのtopicが押されたら他のも消したかった、ここ解説
 }
-// クラス名の変更とかその他やらないといけないことの整理23日
-// 時間 8:00-16:00(昼)、16:00-2:00(夜)、2:00-8:00(朝)
-// 現在時刻を取得する
-// 背景色を変えたい要素を指定する
-// 要素に対してクラスを付けたり外したりする
-
 window.addEventListener("load", function () {
   let getH = new Date().getHours();
-  // 現在の時間を取得
-  // let bgi = document.getElementById(".bgi");
+  console.log(getH);
   let bgi = document.querySelector(".bgi");
-  // .bgiというクラスを持つ要素を取得*同じidはつけられないのでgerElementはダメ
-  if ((getH >= 8) && (getH < 16)) {
-    bgi.classList.remove("bgi-night");
+  if ((getH >= 9) && (getH < 16)) {
+    bgi.classList.add("bgi-noon");
+    console.log("昼です");
+  } else if ((getH >= 16 && getH < 23) || (getH >= 0 && getH < 2)) {
+    bgi.classList.add("bgi-night");
+    console.log("夜です");
+  } else if ((getH >= 2) && (getH < 9)) {
     bgi.classList.add("bgi-morning");
-    // 夜が消えて朝が来る
-  } else if ((getH >= 16) && (getH < 2)) {
-    bgi.classList.remove('bgi-morning');
-    bgi.classList.add('bgi-noon');
-    // 朝が消えて昼が来る
-  } else if ((getH >= 2) && (getH < 8)) {
-    bgi.classList.remove('bgi-noon');
-    bgi.classList.add('bgi-night');
-    // 昼が消えて夜が来る
+    console.log("朝です");
   }
 });
