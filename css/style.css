@@ -69,36 +69,22 @@ font-family
   font-weight: 500;
 }
 
-.bgi{
-  background-image: url(../imagas/unn.JPG);
-  background-size: cover;
-  /* background-image: 100%; */
-  /* background-repeat: no-repeat; */
-  /* object-fit: cover; */
-}
-
 .bgi-morning {
   background-image: url(../images/moni.png);
-  /* background-image: 100%; */
-  /* background-repeat: no-repeat; */
   background-size: cover;
-  /* object-fit: cover; */
+  background-position: center;
 }
 
 .bgi-noon {
   background-image: url(../images/noon.png);
-  /* background-image: 100%; */
-  /* background-repeat: no-repeat; */
   background-size: cover;
-  /* object-fit: cover; */
+  background-position: center;
 }
 
 .bgi-night {
-  background-image: url(../images/night.png);
-  /* background-image: 100%; */
-  /* background-repeat: no-repeat; */
+  background-image: url(../images/night2.JPG);
   background-size: cover;
-  /* object-fit: cover; */
+  background-position: center;
 }
 
 
@@ -268,17 +254,4 @@ font-family
   background-color: transparent;
   border: none;
   outline: none;
-  
 }
-
-/* 別件 */
-/* 文字を上下中央に持っていくには？ */
-/* .maru {
-  width: 400px;
-  height: 400px;
-  text-align: center;
-  background-color: red;
-  position: absolute;
-  top: 30%;
-  border-radius: 50%;
-} */
