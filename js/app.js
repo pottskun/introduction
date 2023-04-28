@@ -66,8 +66,6 @@ let want = [
   "トラックパッド",
   "マイホーム"]
 
-// click.setAttribute('data-anim-status', 'processing');
-// click.disabled = true;
 const topics = document.getElementsByClassName("topic");
 for (let topic of topics) {
   // topic.addEventListener("keydown", function (e) {
@@ -85,17 +83,20 @@ for (let topic of topics) {
     }
   });
 }
+// 関数actionを定義して引数としてtopic(変数)とtopics(配列)を受け取る
+// otherTopicにtopics(配列)を入れてゆく
+// otherTopicがtopicと異なる場合otherTopicにmsg-picupクラスを追加する
+// つまりtopic以外の要素にmsg-picupクラスを追加することで要素に対するアニメーションを開始
 function action(topic, topics) {
   for (let otherTopic of topics) {
     if (otherTopic !== topic) {
-      // otherTopic と topic の値が異なる場合に true を返します。???
+      // otherTopic と topic の値が異なる場合に true を返しす
       otherTopic.classList.add("msg-picup");
+      otherTopic.setAttribute("data-anim-status", "processing")
     }
   }
   topic.classList.add("msg-picup");
-  // ここではアニメーションを取得してきてアニメーション終了後にイベントを実行している
   topic.addEventListener("animationend", () => {
-    // アニメーション終了後に実行する内容(下からwindowがでてくる)
     const modal = document.createElement("div");
     modal.className = "slideUp"
     document.getElementById("modal").appendChild(modal);
@@ -103,19 +104,19 @@ function action(topic, topics) {
     closeBtn.className = "js-closeBtn"
     document.getElementsByClassName("slideUp")[0].appendChild(closeBtn);
     closeBtn.innerHTML = ("close");
-    // closeボタンが押されたらモーダルがスライドダウンする
     closeBtn.addEventListener("click", function () {
-      // closeBtnが押された時の処理を書くmodalにクラスを付与して、そのクラスが付いたらスライドダウンするようにする
       modal.classList.add("slideDown")
-      // 9行目で行っているのと同じように、slideDownのアニメーションが終わったら、
       modal.addEventListener("animationend", () => {
         for (let removeTopic of topics) {
           removeTopic.classList.remove("msg-picup")
         }
-        // slideUpを消している
         modal.remove();
-        // ここに追加
         topic.setAttribute('data-anim-status', 'clickable');
+        for (let otherTopic of topics) {
+          if (otherTopic !== topic) {
+            otherTopic.setAttribute("data-anim-status", "clickable");
+          }
+        }
       })
     })
     const hoge = document.getElementsByClassName("slideUp")[0];
@@ -144,15 +145,15 @@ function action(topic, topics) {
     }
   }, { once: true })
 }
-// ここでは一つのtopicが押されたら他のも消したかった、ここ解説
 window.addEventListener("load", function () {
   let getH = new Date().getHours();
   let bgi = document.querySelector(".container");
-  if ((getH >= 9) && (getH < 18)) {
+  if ((getH >= 9) && (getH <= 18)) {
     bgi.classList.add("bgi-noon");
-  } else if ((getH >= 18 && getH < 23) || (getH >= 0 && getH < 2)) {
+    console.log("うんち");
+  } else if ((getH >= 19 && getH <= 23) || (getH >= 0 && getH <= 2)) {
     bgi.classList.add("bgi-night");
-  } else if ((getH >= 2) && (getH < 9)) {
+  } else if ((getH >= 3) && (getH <= 8)) {
     bgi.classList.add("bgi-morning");
   }
 });

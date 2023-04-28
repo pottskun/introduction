@@ -70,23 +70,22 @@ font-family
 }
 
 .bgi-morning {
-  background-image: url(../images/moni.png);
+  background-image: url(../images/moni.jpg);
   background-size: cover;
   background-position: center;
 }
 
 .bgi-noon {
-  background-image: url(../images/noon.png);
+  background-image: url(../images/noon.jpg);
   background-size: cover;
   background-position: center;
 }
 
 .bgi-night {
-  background-image: url(../images/night2.JPG);
+  background-image: url(../images/night.jpg);
   background-size: cover;
   background-position: center;
 }
-
 
 .container {
   width: 100%;
@@ -107,43 +106,42 @@ font-family
 
 #hello {
   position: absolute;
-  top: 18%;
+  top: 14%;
   right: 0;
 }
 
 #like {
   position: absolute;
-  top: 32%;
-  right: 20%;
+  top: 22%;
+  right: 16%;
 }
 
 #dislike {
   position: absolute;
-  top: 42%;
+  top: 40%;
   left: 0;
 }
 
 #hobby {
   position: absolute;
-  top: 58%;
+  top: 52%;
   right: 0;
 }
 
 #study {
   position: absolute;
   top: 64%;
-  left: 0;
+  left: 2%;
 }
 
 #want {
   position: absolute;
-  top: 72%;
+  top: 74%;
   left: 10%;
 }
 
 
 .msg-picup {
-  /* topicがクリックされたらこれをつけてtopicを消している */
   animation: .8s 1 normal fadeout;
   animation-fill-mode: forwards;
 }
@@ -248,10 +246,11 @@ font-family
   display: block;
   position: absolute;
   right: 8px;
-  cursor:pointer;
+  color: #212121;
+  font-size: 1em;
   margin: 1em;
-  text-decoration: underline;
+  cursor:pointer;
+  text-decoration: none;
   background-color: transparent;
   border: none;
-  outline: none;
 }
